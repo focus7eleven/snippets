@@ -1,4 +1,8 @@
+import json from 'decorators/json'
+
 class UserService {
+
+  @json
   signIn(username, password) {
     return fetch('/api/users/login', {
       method: 'POST',

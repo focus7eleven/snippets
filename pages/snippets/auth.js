@@ -4,10 +4,9 @@ import { Button } from 'antd';
 
 export default class AuthContainer extends React.Component {
 
-  handleLogin = () => {
-    UserService.signIn('longcha', '123').then(res => {
-      console.log('res : ', res );
-    })
+  async handleLogin() {
+    const res = await UserService.signIn('longcha', '123')
+    console.log('res : ', res );
   }
   
   render() {
