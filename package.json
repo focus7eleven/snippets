@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/focus7eleven/snippets#readme",
   "dependencies": {
-    "antd": "^3.9.2",
     "umi": "^2.0.3"
+  },
+  "devDependencies": {
+    "umi-plugin-react": "^1.0.3"
   }
 }

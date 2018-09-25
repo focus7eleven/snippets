@@ -2,9 +2,21 @@ import React from 'react'
 import UserService from 'services/user'
 import { Button } from 'antd';
 
-export default class AuthContainer extends React.Component {
+class AuthContainer extends React.Component {
+  state = {
+    root: {
+      child1: {
+        leave1: [123,234],
+        leave2: 'l2'
+      },
+      child2: {
+        leave3: false,
+        leave4: () => {}
+      }
+    }
+  }
 
-  async handleLogin() {
+ async handleLogin(test) {
     const res = await UserService.signIn('longcha', '123')
     console.log('res : ', res );
   }
@@ -13,8 +25,7 @@ export default class AuthContainer extends React.Component {
     return (
       <div>
         <div>
-          <span> auth </span>
-          <Button onClick={this.handleLogin}>sign in</Button>
+          <Button type="primary" onClick={this.handleLogin}>sign in</Button>
         </div>
         <div>
           { this.props.children }
@@ -23,3 +34,6 @@ export default class AuthContainer extends React.Component {
     )
   }
 }
+
+
+export default AuthContainer
