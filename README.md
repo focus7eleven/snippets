@@ -1,2 +1,365 @@
-# snippets
-might be useful
+## Table of Contents
+
+### 🔌 Adapter
+
+<details>
+<summary>View contents</summary>
+
+* [`ary`](#ary)
+* [`call`](#call)
+* [`collectInto`](#collectinto)
+* [`flip`](#flip)
+* [`over`](#over)
+* [`overArgs`](#overargs)
+* [`pipeAsyncFunctions`](#pipeasyncfunctions)
+* [`pipeFunctions`](#pipefunctions)
+* [`promisify`](#promisify)
+* [`rearg`](#rearg)
+* [`spreadOver`](#spreadover)
+* [`unary`](#unary)
+
+</details>
+
+### 📚 Array
+
+<details>
+<summary>View contents</summary>
+
+* [`all`](#all)
+* [`allEqual`](#allequal)
+* [`any`](#any)
+* [`arrayToCSV`](#arraytocsv)
+* [`bifurcate`](#bifurcate)
+* [`bifurcateBy`](#bifurcateby)
+* [`chunk`](#chunk)
+* [`compact`](#compact)
+* [`countBy`](#countby)
+* [`countOccurrences`](#countoccurrences)
+* [`deepFlatten`](#deepflatten)
+* [`difference`](#difference)
+* [`differenceBy`](#differenceby)
+* [`differenceWith`](#differencewith)
+* [`drop`](#drop)
+* [`dropRight`](#dropright)
+* [`dropRightWhile`](#droprightwhile)
+* [`dropWhile`](#dropwhile)
+* [`everyNth`](#everynth)
+* [`filterNonUnique`](#filternonunique)
+* [`filterNonUniqueBy`](#filternonuniqueby)
+* [`findLast`](#findlast)
+* [`findLastIndex`](#findlastindex)
+* [`flatten`](#flatten)
+* [`forEachRight`](#foreachright)
+* [`groupBy`](#groupby)
+* [`head`](#head)
+* [`indexOfAll`](#indexofall)
+* [`initial`](#initial)
+* [`initialize2DArray`](#initialize2darray)
+* [`initializeArrayWithRange`](#initializearraywithrange)
+* [`initializeArrayWithRangeRight`](#initializearraywithrangeright)
+* [`initializeArrayWithValues`](#initializearraywithvalues)
+* [`initializeNDArray`](#initializendarray)
+* [`intersection`](#intersection)
+* [`intersectionBy`](#intersectionby)
+* [`intersectionWith`](#intersectionwith)
+* [`isSorted`](#issorted)
+* [`join`](#join)
+* [`JSONtoCSV`](#jsontocsv-)
+* [`last`](#last)
+* [`longestItem`](#longestitem)
+* [`mapObject`](#mapobject-)
+* [`maxN`](#maxn)
+* [`minN`](#minn)
+* [`none`](#none)
+* [`nthElement`](#nthelement)
+* [`offset`](#offset)
+* [`partition`](#partition)
+* [`permutations`](#permutations-)
+* [`pull`](#pull)
+* [`pullAtIndex`](#pullatindex-)
+* [`pullAtValue`](#pullatvalue-)
+* [`pullBy`](#pullby-)
+* [`reducedFilter`](#reducedfilter)
+* [`reduceSuccessive`](#reducesuccessive)
+* [`reduceWhich`](#reducewhich)
+* [`reject`](#reject)
+* [`remove`](#remove)
+* [`sample`](#sample)
+* [`sampleSize`](#samplesize)
+* [`shank`](#shank)
+* [`shuffle`](#shuffle)
+* [`similarity`](#similarity)
+* [`sortedIndex`](#sortedindex)
+* [`sortedIndexBy`](#sortedindexby)
+* [`sortedLastIndex`](#sortedlastindex)
+* [`sortedLastIndexBy`](#sortedlastindexby)
+* [`stableSort`](#stablesort-)
+* [`symmetricDifference`](#symmetricdifference)
+* [`symmetricDifferenceBy`](#symmetricdifferenceby)
+* [`symmetricDifferenceWith`](#symmetricdifferencewith)
+* [`tail`](#tail)
+* [`take`](#take)
+* [`takeRight`](#takeright)
+* [`takeRightWhile`](#takerightwhile)
+* [`takeWhile`](#takewhile)
+* [`toHash`](#tohash)
+* [`union`](#union)
+* [`unionBy`](#unionby)
+* [`unionWith`](#unionwith)
+* [`uniqueElements`](#uniqueelements)
+* [`uniqueElementsBy`](#uniqueelementsby)
+* [`uniqueElementsByRight`](#uniqueelementsbyright)
+* [`uniqueSymmetricDifference`](#uniquesymmetricdifference)
+* [`unzip`](#unzip)
+* [`unzipWith`](#unzipwith-)
+* [`without`](#without)
+* [`xProd`](#xprod)
+* [`zip`](#zip)
+* [`zipObject`](#zipobject)
+* [`zipWith`](#zipwith-)
+
+</details>
+
+### 🌐 Browser
+
+<details>
+<summary>View contents</summary>
+
+* [`arrayToHtmlList`](#arraytohtmllist)
+* [`bottomVisible`](#bottomvisible)
+* [`copyToClipboard`](#copytoclipboard-)
+* [`counter`](#counter-)
+* [`createElement`](#createelement)
+* [`createEventHub`](#createeventhub-)
+* [`currentURL`](#currenturl)
+* [`detectDeviceType`](#detectdevicetype)
+* [`elementContains`](#elementcontains)
+* [`elementIsVisibleInViewport`](#elementisvisibleinviewport-)
+* [`getImages`](#getimages)
+* [`getScrollPosition`](#getscrollposition)
+* [`getStyle`](#getstyle)
+* [`hasClass`](#hasclass)
+* [`hashBrowser`](#hashbrowser-)
+* [`hide`](#hide)
+* [`httpsRedirect`](#httpsredirect)
+* [`insertAfter`](#insertafter)
+* [`insertBefore`](#insertbefore)
+* [`isBrowserTabFocused`](#isbrowsertabfocused)
+* [`nodeListToArray`](#nodelisttoarray)
+* [`observeMutations`](#observemutations-)
+* [`off`](#off)
+* [`on`](#on)
+* [`onUserInputChange`](#onuserinputchange-)
+* [`prefix`](#prefix)
+* [`recordAnimationFrames`](#recordanimationframes)
+* [`redirect`](#redirect)
+* [`runAsync`](#runasync-)
+* [`scrollToTop`](#scrolltotop)
+* [`setStyle`](#setstyle)
+* [`show`](#show)
+* [`smoothScroll`](#smoothscroll)
+* [`toggleClass`](#toggleclass)
+* [`triggerEvent`](#triggerevent)
+* [`UUIDGeneratorBrowser`](#uuidgeneratorbrowser)
+
+</details>
+
+### ⏱️ Date
+
+<details>
+<summary>View contents</summary>
+
+* [`dayOfYear`](#dayofyear)
+* [`formatDuration`](#formatduration)
+* [`getColonTimeFromDate`](#getcolontimefromdate)
+* [`getDaysDiffBetweenDates`](#getdaysdiffbetweendates)
+* [`getMeridiemSuffixOfInteger`](#getmeridiemsuffixofinteger)
+* [`isAfterDate`](#isafterdate)
+* [`isBeforeDate`](#isbeforedate)
+* [`isSameDate`](#issamedate)
+* [`maxDate`](#maxdate)
+* [`minDate`](#mindate)
+* [`tomorrow`](#tomorrow)
+
+</details>
+
+### 🎛️ Function
+
+<details>
+<summary>View contents</summary>
+
+* [`attempt`](#attempt)
+* [`bind`](#bind)
+* [`bindKey`](#bindkey)
+* [`chainAsync`](#chainasync)
+* [`compose`](#compose)
+* [`composeRight`](#composeright)
+* [`converge`](#converge)
+* [`curry`](#curry)
+* [`debounce`](#debounce)
+* [`defer`](#defer)
+* [`delay`](#delay)
+* [`functionName`](#functionname)
+* [`hz`](#hz)
+* [`memoize`](#memoize-)
+* [`negate`](#negate)
+* [`once`](#once)
+* [`partial`](#partial)
+* [`partialRight`](#partialright)
+* [`runPromisesInSeries`](#runpromisesinseries)
+* [`sleep`](#sleep)
+* [`throttle`](#throttle-)
+* [`times`](#times)
+* [`uncurry`](#uncurry)
+* [`unfold`](#unfold)
+* [`when`](#when)
+
+</details>
+
+### ➗ Math
+
+<details>
+<summary>View contents</summary>
+
+* [`approximatelyEqual`](#approximatelyequal)
+* [`average`](#average)
+* [`averageBy`](#averageby)
+* [`binomialCoefficient`](#binomialcoefficient)
+* [`clampNumber`](#clampnumber)
+* [`degreesToRads`](#degreestorads)
+* [`digitize`](#digitize)
+* [`distance`](#distance)
+* [`elo`](#elo-)
+* [`factorial`](#factorial)
+* [`fibonacci`](#fibonacci)
+* [`gcd`](#gcd)
+* [`geometricProgression`](#geometricprogression)
+* [`hammingDistance`](#hammingdistance)
+* [`inRange`](#inrange)
+* [`isDivisible`](#isdivisible)
+* [`isEven`](#iseven)
+* [`isPrime`](#isprime)
+* [`lcm`](#lcm)
+* [`luhnCheck`](#luhncheck-)
+* [`maxBy`](#maxby)
+* [`median`](#median)
+* [`minBy`](#minby)
+* [`percentile`](#percentile)
+* [`powerset`](#powerset)
+* [`primes`](#primes)
+* [`radsToDegrees`](#radstodegrees)
+* [`randomIntArrayInRange`](#randomintarrayinrange)
+* [`randomIntegerInRange`](#randomintegerinrange)
+* [`randomNumberInRange`](#randomnumberinrange)
+* [`round`](#round)
+* [`sdbm`](#sdbm)
+* [`standardDeviation`](#standarddeviation)
+* [`sum`](#sum)
+* [`sumBy`](#sumby)
+* [`sumPower`](#sumpower)
+* [`toSafeInteger`](#tosafeinteger)
+
+</details>
+
+### 📦 Node
+
+<details>
+<summary>View contents</summary>
+
+* [`atob`](#atob)
+* [`btoa`](#btoa)
+* [`colorize`](#colorize)
+* [`hasFlags`](#hasflags)
+* [`hashNode`](#hashnode)
+* [`isDuplexStream`](#isduplexstream)
+* [`isReadableStream`](#isreadablestream)
+* [`isStream`](#isstream)
+* [`isTravisCI`](#istravisci)
+* [`isWritableStream`](#iswritablestream)
+* [`JSONToFile`](#jsontofile)
+* [`readFileLines`](#readfilelines)
+* [`untildify`](#untildify)
+* [`UUIDGeneratorNode`](#uuidgeneratornode)
+
+</details>
+
+### 🗃️ Object
+
+<details>
+<summary>View contents</summary>
+
+* [`bindAll`](#bindall)
+* [`deepClone`](#deepclone)
+* [`deepFreeze`](#deepfreeze)
+* [`defaults`](#defaults)
+* [`dig`](#dig)
+* [`equals`](#equals-)
+* [`findKey`](#findkey)
+* [`findLastKey`](#findlastkey)
+* [`flattenObject`](#flattenobject)
+* [`forOwn`](#forown)
+* [`forOwnRight`](#forownright)
+* [`functions`](#functions)
+* [`get`](#get)
+* [`invertKeyValues`](#invertkeyvalues)
+* [`lowercaseKeys`](#lowercasekeys)
+* [`mapKeys`](#mapkeys)
+* [`mapValues`](#mapvalues)
+* [`matches`](#matches)
+* [`matchesWith`](#matcheswith)
+* [`merge`](#merge)
+* [`nest`](#nest)
+* [`objectFromPairs`](#objectfrompairs)
+* [`objectToPairs`](#objecttopairs)
+* [`omit`](#omit)
+* [`omitBy`](#omitby)
+* [`orderBy`](#orderby)
+* [`pick`](#pick)
+* [`pickBy`](#pickby)
+* [`renameKeys`](#renamekeys)
+* [`shallowClone`](#shallowclone)
+* [`size`](#size)
+* [`transform`](#transform)
+* [`truthCheckCollection`](#truthcheckcollection)
+* [`unflattenObject`](#unflattenobject-)
+
+</details>
+
+### 📜 String
+
+<details>
+<summary>View contents</summary>
+
+* [`byteSize`](#bytesize)
+* [`capitalize`](#capitalize)
+* [`capitalizeEveryWord`](#capitalizeeveryword)
+* [`CSVToArray`](#csvtoarray)
+* [`CSVToJSON`](#csvtojson-)
+* [`decapitalize`](#decapitalize)
+* [`escapeHTML`](#escapehtml)
+* [`escapeRegExp`](#escaperegexp)
+* [`fromCamelCase`](#fromcamelcase)
+* [`indentString`](#indentstring)
+* [`isAbsoluteURL`](#isabsoluteurl)
+* [`isAnagram`](#isanagram)
+* [`isLowerCase`](#islowercase)
+* [`isUpperCase`](#isuppercase)
+* [`mapString`](#mapstring)
+* [`mask`](#mask)
+* [`pad`](#pad)
+* [`palindrome`](#palindrome)
+* [`pluralize`](#pluralize)
+* [`removeNonASCII`](#removenonascii)
+* [`reverseString`](#reversestring)
+* [`sortCharactersInString`](#sortcharactersinstring)
+* [`splitLines`](#splitlines)
+* [`stringPermutations`](#stringpermutations-)
+* [`stripHTMLTags`](#striphtmltags)
+* [`toCamelCase`](#tocamelcase)
+* [`toKebabCase`](#tokebabcase)
+* [`toSnakeCase`](#tosnakecase)
+* [`toTitleCase`](#totitlecase)
+* [`truncateString`](#truncatestring)
+* [`unescapeHTML`](#unescapehtml)
+* [`URLJoin`](#urljoin-)
+* [`words`](#words)
