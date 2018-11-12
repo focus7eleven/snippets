@@ -42,3 +42,21 @@ let p1 = Promise.resolve(1);
 let p2 = Promise.resolve(2);
 let p3 = new Promise(resolve => setTimeout(resolve, 2000, 3));
 Pall(p1, p2, p3).then(console.log); // [1, 2, 3] (after about 2 seconds)
+
+
+/**
+ * flip
+ * Flip takes a function as an argument, then makes the first argument the last.
+ */
+
+const flip = fn => (first, ...rest) => fn(...rest, first)
+
+let a = { name: 'John Smith' };
+let b = {};
+const mergeFrom = flip(Object.assign);
+let mergePerson = mergeFrom.bind(null, a);
+const res1 = mergePerson(b); // == b
+b = {};
+const res2 = Object.assign(b, a); // == b
+console.log('res1 : ', res1 );
+console.log('res2 : ', res2 );
