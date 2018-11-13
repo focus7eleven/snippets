@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/focus7eleven/snippets.svg?branch=master)](https://travis-ci.org/focus7eleven/snippets)
+
 ## Table of Contents
 
 ### 🔌 Adapter
