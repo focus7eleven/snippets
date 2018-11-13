@@ -42,4 +42,17 @@ describe('test adapter', () => {
     expect(res1).toEqual(a)
     expect(res2).toEqual(a)
   })
+
+  test('test over', () => {
+    const minMax = adapter.over(Math.min, Math.max)
+    const result = minMax(1, 2, 3, 4, 5)
+    expect(result).toEqual([1, 5])
+  })
+
+  test('test over args', () => {
+    const square = n => n * n;
+    const double = n => n * 2;
+    const fn = adapter.overArgs((x, y) => [x, y], [square, double]);
+    expect(fn(9, 3)).toEqual([81, 6])
+  })
 });

@@ -24,6 +24,19 @@ class Adapter {
    * Flip takes a function as an argument, then makes the first argument the last.
    */
   flip = fn => (first, ...rest) => fn(...rest, first)
+
+  /**
+   * over
+   * Creates a function that invokes each provided function with the arguments it receives and returns the results.
+   */
+  over = (...args) => (...params) => args.map(fn => fn(...params))
+
+  /**
+   * overArgs
+   * Creates a function that invokes the provided function with its arguments transformed.
+   */
+  overArgs = (fn, transform) => (...args) => fn(...(args.map((n, i) => transform[i](n))))
+
 }
 
 const adatper = new Adapter()
