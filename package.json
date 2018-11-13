@@ -21,8 +21,7 @@
   },
   "homepage": "https://github.com/focus7eleven/snippets#readme",
   "dependencies": {
-    "umi": "^2.2.6",
-    "umi-plugin-react": "^1.2.3"
+    "umi": "^2.2.6"
   },
   "devDependencies": {
     "coveralls": "^3.0.2"

@@ -6,8 +6,8 @@ export default {
     'services': path.resolve(__dirname, 'services/')
   },
   plugins: [
-    ['umi-plugin-react', {
-      antd: true
-    }]
+    // ['umi-plugin-react', {
+    //   antd: true
+    // }]
   ]
 }
