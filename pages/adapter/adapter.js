@@ -37,6 +37,11 @@ class Adapter {
    */
   overArgs = (fn, transform) => (...args) => fn(...(args.map((n, i) => transform[i](n))))
 
+  /**
+   * pipeAsyncFunctions
+   * Performs left-to-right function composition for asynchronous functions.
+   */
+  pipeAsyncFunctions = (...fns) => arg => fns.reduce((p, f) => p.then(f), Promise.resolve(arg))
 }
 
 const adatper = new Adapter()

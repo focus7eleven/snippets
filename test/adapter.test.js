@@ -55,4 +55,15 @@ describe('test adapter', () => {
     const fn = adapter.overArgs((x, y) => [x, y], [square, double]);
     expect(fn(9, 3)).toEqual([81, 6])
   })
+
+  test('test pipe async functions', async () => {
+    const sum = adapter.pipeAsyncFunctions(
+      x => x + 1,
+      x => new Promise(resolve => setTimeout(() => resolve(x + 2), 1000)),
+      x => x + 3,
+      async x => (await x) + 4
+    )
+    const res = await sum(5)
+    expect(res).toEqual(15)
+  })
 });
