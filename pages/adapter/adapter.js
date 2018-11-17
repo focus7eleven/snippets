@@ -35,7 +35,7 @@ class Adapter {
    * overArgs
    * Creates a function that invokes the provided function with its arguments transformed.
    */
-  overArgs = (fn, transform) => (...args) => fn(...(args.map((n, i) => transform[i](n))))
+  overArgs = (fn, transform) => (...args) => fn(...args.map((n, i) => transform[i](n)))
 
   /**
    * pipeAsyncFunctions
@@ -54,10 +54,26 @@ class Adapter {
    * Converts an asynchronous function to return a promise.
    */
   promisify = fn => timeout => new Promise(resolve => fn(timeout, resolve))
+
+  /**
+   * rearg
+   * Creates a function that invokes the provided function with its arguments arranged according to the specified indexes.
+   */
+  rearg = (fn, indexes) => (...args) => fn(...indexes.map(i => args[i]))
+
+  /**
+   * spreadOver
+   * Takes a variadic function and returns a closure that accepts an array of arguments to map to the inputs of the function.
+   */
+  spreadOver = fn => arr => fn.apply(null, arr)
+
+  /**
+   * unary
+   * Creates a function that accepts up to one argument, ignoring any additional arguments.
+   */
+  unary = fn => (...args) => fn(args[0])
 }
 
 const adatper = new Adapter()
 
 export default adatper
-
-

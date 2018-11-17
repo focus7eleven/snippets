@@ -9,20 +9,24 @@ describe('test adapter', () => {
   })
 
   test('test call 1', () => {
-    Promise.resolve([1, 2, 3]).then(adapter.call('map', x => 2 * x)).then(res => {
-      expect(res).toEqual([2, 4, 6])
-    })
+    Promise.resolve([1, 2, 3])
+      .then(adapter.call('map', x => 2 * x))
+      .then(res => {
+        expect(res).toEqual([2, 4, 6])
+      })
   })
 
   test('test call 2', () => {
-    const map = adapter.call.bind(null, 'map');
-    Promise.resolve([1, 2, 3]).then(map(x => 2 * x)).then(res => {
-      expect(res).toEqual([2, 4, 6])
-    })
+    const map = adapter.call.bind(null, 'map')
+    Promise.resolve([1, 2, 3])
+      .then(map(x => 2 * x))
+      .then(res => {
+        expect(res).toEqual([2, 4, 6])
+      })
   })
 
   test('test collect into', () => {
-    const Pall = adapter.collectInto(Promise.all.bind(Promise));
+    const Pall = adapter.collectInto(Promise.all.bind(Promise))
     let p1 = Promise.resolve(1)
     let p2 = Promise.resolve(2)
     let p3 = new Promise(resolve => setTimeout(resolve, 2000, 3))
@@ -32,13 +36,13 @@ describe('test adapter', () => {
   })
 
   test('test flip', () => {
-    let a = { name: 'John Smith' };
-    let b = {};
-    const mergeFrom = adapter.flip(Object.assign);
-    let mergePerson = mergeFrom.bind(null, a);
-    const res1 = mergePerson(b); // == b
-    b = {};
-    const res2 = Object.assign(b, a); // == b
+    let a = { name: 'John Smith' }
+    let b = {}
+    const mergeFrom = adapter.flip(Object.assign)
+    let mergePerson = mergeFrom.bind(null, a)
+    const res1 = mergePerson(b) // == b
+    b = {}
+    const res2 = Object.assign(b, a) // == b
 
     expect(res1).toEqual(a)
     expect(res2).toEqual(a)
@@ -51,9 +55,9 @@ describe('test adapter', () => {
   })
 
   test('test over args', () => {
-    const square = n => n * n;
-    const double = n => n * 2;
-    const fn = adapter.overArgs((x, y) => [x, y], [square, double]);
+    const square = n => n * n
+    const double = n => n * 2
+    const fn = adapter.overArgs((x, y) => [x, y], [square, double])
     expect(fn(9, 3)).toEqual([81, 6])
   })
 
@@ -80,4 +84,23 @@ describe('test adapter', () => {
     const t0 = performance.now()
     delay(2000).then(() => expect(performance.now() - t0).toBeGreaterThan(2000))
   })
-});
+
+  test('test rearg', () => {
+    const rearged = adapter.rearg(
+      function(a, b, c) {
+        return [a, b, c]
+      },
+      [2, 0, 1]
+    )
+    expect(rearged('b', 'c', 'a')).toEqual(['a', 'b', 'c'])
+  })
+
+  test('test spreadOver', () => {
+    const arrayMax = adapter.spreadOver(Math.max)
+    expect(arrayMax([1, 2, 3])).toEqual(3)
+  })
+
+  test('test unary', () => {
+    expect(['6', '8', '10'].map(adapter.unary(parseInt))).toEqual([6, 8, 10])
+  })
+})
