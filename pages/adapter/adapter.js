@@ -42,6 +42,18 @@ class Adapter {
    * Performs left-to-right function composition for asynchronous functions.
    */
   pipeAsyncFunctions = (...fns) => arg => fns.reduce((p, f) => p.then(f), Promise.resolve(arg))
+
+  /**
+   * pipeFunctions
+   * Performs left-to-right function composition.
+   */
+  pipeFunctions = (...fns) => (...args) => fns.reduce((p, f) => [f.apply(null, p)], args)[0]
+
+  /**
+   * promisify
+   * Converts an asynchronous function to return a promise.
+   */
+  promisify = fn => timeout => new Promise(resolve => fn(timeout, resolve))
 }
 
 const adatper = new Adapter()

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1542189677109" clover="3.2.0">
-  <project timestamp="1542189677109" name="All files">
-    <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="17" coveredmethods="17" elements="25" coveredelements="25" complexity="0" loc="8" ncloc="8" packages="1" files="1" classes="1">
+<coverage generated="1542468102388" clover="3.2.0">
+  <project timestamp="1542468102389" name="All files">
+    <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="23" coveredmethods="23" elements="33" coveredelements="33" complexity="0" loc="10" ncloc="10" packages="1" files="1" classes="1">
       <file name="adapter.js" path="/Users/longcha/Documents/snippets/pages/adapter/adapter.js">
-        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="17" coveredmethods="17"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="23" coveredmethods="23"/>
         <line num="8" count="3" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
@@ -11,7 +11,9 @@
         <line num="32" count="2" type="stmt"/>
         <line num="38" count="2" type="stmt"/>
         <line num="44" count="4" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
       </file>
     </metrics>
   </project>

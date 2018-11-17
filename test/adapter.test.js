@@ -1,4 +1,5 @@
 const adapter = require('../pages/adapter/adapter.js').default
+const { performance } = require('perf_hooks')
 
 describe('test adapter', () => {
   test('test ary', () => {
@@ -65,5 +66,18 @@ describe('test adapter', () => {
     )
     const res = await sum(5)
     expect(res).toEqual(15)
+  })
+
+  test('test pipe functions', async () => {
+    const add5 = x => x + 5
+    const multiply = (x, y) => x * y
+    const multiplyAndAdd5 = adapter.pipeFunctions(multiply, add5)
+    expect(multiplyAndAdd5(5, 2)).toEqual(15)
+  })
+
+  test('test promisify', () => {
+    const delay = adapter.promisify((t, cb) => setTimeout(cb, t))
+    const t0 = performance.now()
+    delay(2000).then(() => expect(performance.now() - t0).toBeGreaterThan(2000))
   })
 });
